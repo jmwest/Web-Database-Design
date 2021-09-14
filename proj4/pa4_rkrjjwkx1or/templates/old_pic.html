@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+	<a class="back-to-album" id="parent_album" href="{{ url_for('album.album_route', id=albumId) }}">Back to Album</a>
+	
+	<div class="pic-links">
+		<!-- Link to previous picture (if there is one)-->
+		{% if previousPicInfo.picid != 'make america great again' %}
+		<a class="prev-pic" id="prev_pic" href="{{ url_for( 'pic.pic_route', id=previousPicInfo.picid) }}">Previous Image</a>
+		{% endif %}
+
+		<!-- Link to next picture (if there is one)-->
+		{% if nextPicInfo.picid != 'make america great again' %}
+		<a class="next-pic" id="next_pic" href="{{ url_for( 'pic.pic_route', id=nextPicInfo.picid) }}">Next Image</a>
+		{% endif %}
+	</div>
+
+	<!-- Actual picture -->
+	<img style="dispay: block; clear: both" src="/static/images/{{ picture.picid }}.{{ picture.format }}">
+
+	<!-- Picture caption -->
+	<p id="pic_{{ picture.picid }}_caption">
+	{{ picture.caption }}
+	</p>
+
+	{% if userIsOwner %}
+		<!-- Form for updating caption -->
+		<br><b>Enter a new caption:</b><br>
+		<form method="post" action="{{ url_for('pic.pic_route', id=picture.picid) }}">
+			<input id="pic_caption_input" type="text" name="caption" style="width: 99%"><br>
+			<input id="pic_caption_submit" type="submit" value="Update">
+			<input type="hidden" name="op" value="caption">
+			<input type="hidden" name="picid" value="{{ picture.picid }}">
+		</form>
+	{% endif %}
+{% endblock %}

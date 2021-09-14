@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>MAKE TV NUTT GREAT AGAIN</h1>
+    <p class="center">
+      Welcome!
+    </p>
+    <ul>
+    	{% for user in users %}
+    	<li>
+            <a href="{{ url_for('albums.albums_route', username=user.username) }}" id="user_albums_{{user.username}}">{{ user.username }}</a>
+    	</li>
+    	{% endfor %}
+    </ul>
+{% endblock %}

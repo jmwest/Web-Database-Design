@@ -1,0 +1,4 @@
+pagerank_code/pagerank.net
+2
+0.75 c 0.01 pagerank_code/out2.txt
+0.85 k 10000 pagerank_code/out1.txt

@@ -1,0 +1,10 @@
+venv
+static/images
+.vagrant
+*.pyc
+.DS_Store
+pa2.xcworkspace
+source.tar.gz
+pysha3*
+
+

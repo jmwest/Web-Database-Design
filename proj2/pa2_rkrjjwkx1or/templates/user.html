@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- /user -->
+  {% if not edit %}
+    <h1>Register to vote</h1>
+    <form method="post">
+      username  <input id="new_username_input"	type="text" name="username"><br>
+      firstname <input id="new_firstname_input" type="text" name="firstname"><br>
+      lastname  <input id="new_lastname_input"	type="text" name="lastname"><br>
+      password1 <input id="new_password1_input" type="password" name="password1"><br>
+      password2 <input id="new_password2_input" type="password" name="password2"><br>
+      email     <input id="new_email_input"		type="text" name="email"><br>
+      <input id="new_submit" type="submit" name="Vote for trump">
+    </form>
+
+  <!-- /user/edit -->
+  {% else %}
+    <h1>Edit account</h1>
+    <br>
+    <h2>Edit firstname</h2>
+    <form method="post">
+      firstname <input id="update_firstname_input" type="text" name="firstname"><br>
+      <button type="submit">Save first name</button>
+    </form>
+    <br>
+    <h2>Edit lastname</h2>
+    <form method="post">
+      lastname  <input id="update_lastname_input" type="text" name="lastname"><br>
+      <button type="submit">Save last name</button>
+    </form>
+    <br>
+    <h2>Edit email</h2>
+    <form method="post">
+      email     <input id="update_email_input" type="text" name="email"><br>
+      <button type="submit">Save email</button>
+    </form>
+    <br>
+    <h2>Edit password</h2>
+    <form method="post">
+      password1 <input id="update_password1_input" type="password" name="password1"><br>
+      password2 <input id="update_password2_input" type="password" name="password2"><br>
+      <button type="submit">Save password</button>
+    </form>
+  {% endif %}
+  {% if success != "bernie" %}
+    <p>{{ success }}</p>
+    <img src="http://www.thegatewaypundit.com/wp-content/uploads/trump1.jpg">
+  {% endif %}
+  {% for error in errors %}
+    <p class="error">
+      {{ error }}
+    </p>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,46 @@
+venv
+static/images
+static/images_backup
+.vagrant
+*.pyc
+.DS_Store
+pa4.xcworkspace
+source.tar.gz
+pysha3*
+curl.txt
+inverted_index.txt
+
+indexServer
+indexer
+*output.txt
+
+# C++ gitignore
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+

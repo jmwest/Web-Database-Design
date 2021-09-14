@@ -1,0 +1,10 @@
+venv
+static/images
+static/images_backup
+.vagrant
+*.pyc
+.DS_Store
+pa3.xcworkspace
+source.tar.gz
+pysha3*
+curl.txt

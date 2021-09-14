@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>ALBUM</h1>
+    {% if edit %}
+		<a href="{{ url_for('album.album_route', id=albumid) }}">Back to Album</a>
+		<h3 style="margin-bottom: 0px">Add Photo</h3>
+		<form method="post" action="{{ url_for('album.album_edit_route', id=albumid )}}" enctype="multipart/form-data">
+			<input id="file_input" type="file" name="file" accept="image/*">
+			<button id="file_submit" type="submit">Add</button>
+			<input type="hidden" name="op" value="add">
+			<input type="hidden" name="albumid" value="{{ albumid }}">
+		</form>
+		<p></p>
+	{% else %}
+		<p><a href="{{ url_for('albums.albums_route', username=username) }}" style="margin-bottom:5 px">Back to Albums</a></p>
+		<p><a href="{{ url_for('album.album_edit_route', id=albumid) }}" style="margin-right: 20px">Edit Album</a></p>
+	{% endif %}
+    <table>
+    {% for picture in pictures %}
+		<tr>
+		  {% if edit %}
+		  <td>
+		  	<form method="post" action="{{ url_for('album.album_edit_route', id=albumid) }}">
+			  <button id="delete_pic_{{ picture.picid }}" type="submit">Delete</button>
+			  <input type="hidden" name="op" value="delete">
+			  <input type="hidden" name="albumid" value="{{ albumid }}">
+			  <input type="hidden" name="picid" value="{{ picture.picid }}">
+		    </form>
+		  </td>
+		  {% endif %}
+		  <td><a id="pic_{{ picture.picid }}_link" href="{{ url_for('pic.pic_route', id=picture.picid)}}"><img src="/static/images/{{ picture.picid }}.{{ picture.format }}" height="150"></a></td>
+		</tr>
+    {% endfor %}
+    </table>
+{% endblock %}

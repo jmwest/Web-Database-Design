@@ -1,0 +1,16 @@
+body {
+	font-family: comic sans ms, sans-serif;
+	background-image: url("https://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2.jpg");
+}
+
+.container {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+.center {
+	margin:0 auto;
+	max-width: 500px;
+}

@@ -1,0 +1,8 @@
+test/test1.net
+test/test_hits1.txt
+5
+3 k 15 test/test1_out1.txt pizza
+2 c 0.1 test/test1_out2.txt pizza
+3 k 10 test/test1_out3.txt pizza tornado
+1 c 0.01 test/test1_out4.txt America car
+3 k 5 test/test1_out5.txt americA CARs

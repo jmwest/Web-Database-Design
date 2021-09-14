@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Search Clinton's Hidden Email Database and Obama's Birth Certificate Records</h1>
+    <form method="get" action="{{ url_for('search.search_route') }}">
+	  <br><input id="searchBox" type="text" name="query"><br>
+	  <input id="searchSubmit" type="submit" value="search">
+    </form>
+    {% if searched %}
+    <p>Number of Scandalous Emails:</p>
+    <p id="numResults">{{ numHits }}</p>
+    	{% for hit in hits %}
+        <hr>
+    	<br>
+    	<p>hit id: {{ hit["id"] }}</p>
+    	<p>hit score: {{ hit["score"] }}</p>
+        <h2 class="caption">{{ hit["caption"] }}</h2>
+        <a id="pic_{{ hit['filename'] }}_id" class="queryHit" href="{{ url_for('search.search_route', query=hit['caption']) }}"><img src="/static/images/{{ hit['url'] }}"></a>
+    	{% endfor %}
+    {% endif %}
+{% endblock %}

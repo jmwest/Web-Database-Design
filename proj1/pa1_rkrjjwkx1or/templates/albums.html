@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>ALBUMS</h1>
+    <table>
+	  {% for album in albums %}
+	  <tr>
+        <td><a id="album_{{ album.albumid }}_link" href="{{ url_for('album.album_route', id=album.albumid) }}" style="margin-right: 20px">{{ album.title }}</a></td>
+        <td><a href="{{ url_for('album.album_edit_route', id=album.albumid) }}" style="margin-right: 5px">Edit</a></td>
+	  </tr>
+    {% endfor %}
+    <tr>
+      <td><a id="user_albums_edit_{{ usernameVal }}" href="{{ url_for('albums.albums_edit_route', username=usernameVal) }}" style="margin-right: 20px">Add/Delete Albums</a></td>
+    </tr>
+	</table>
+    {% if edit %}
+        <div> This is only on the edit page </div>
+    {% endif %}
+{% endblock %}

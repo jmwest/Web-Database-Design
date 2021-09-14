@@ -1,0 +1,12 @@
+hits
+pagerank
+hits_code/*.o
+pagerank_code/*.o
+
+hits_code/hits.net
+hits_code/inverted_index.txt
+inverted*
+pagerank_code/pagerank.net
+
+pa5.xcworkspace
+*out*

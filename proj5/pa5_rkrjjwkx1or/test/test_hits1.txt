@@ -1,0 +1,9 @@
+aMerica 2
+america 3
+car 1
+cars 1
+cars 3
+pizza 1
+pizza 2
+pizza 4
+tornado 4

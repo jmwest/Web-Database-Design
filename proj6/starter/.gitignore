@@ -1,0 +1,13 @@
+.vagrant/
+data/
+venv/
+hadoop/bin
+hadoop/etc
+hadoop/include
+hadoop/lib
+hadoop/libexec
+hadoop/sbin
+hadoop/share
+hadoop/mapreduce/input
+hadoop/mapreduce/output
+hadoop/mapreduce/tmp*

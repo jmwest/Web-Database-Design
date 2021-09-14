@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- /user -->
+  {% if not edit %}
+    <h1>Register to vote</h1>
+    <form method="post" name="Create Form" id="new_user">
+      username  <input id="new_username_input"	type="text" name="username" onkeyup="validateForm()"><br>
+      firstname <input id="new_firstname_input" type="text" name="firstname" onkeyup="validateForm()"><br>
+      lastname  <input id="new_lastname_input"	type="text" name="lastname" onkeyup="validateForm()"><br>
+      password1 <input id="new_password1_input" type="password" name="password1" onkeyup="validateForm()"><br>
+      password2 <input id="new_password2_input" type="password" name="password2" onkeyup="validateForm()"><br>
+      email     <input id="new_email_input"		type="text" name="email" onkeyup="validateForm()"><br>
+    </form>
+    <button id="new_submit" type="submit"> name="Vote for trump" </button>
+    <div class="errors">
+    </div>
+
+  <!-- /user/edit -->
+  {% else %}
+    <h1>Edit account</h1>
+    <br>
+    <form method="post" name="Edit Form" id="update_user">
+      <h2>Edit firstname</h2>
+      firstname <input id="update_firstname_input" type="text" name="firstname" onkeyup="validateEditForm()"><br>
+      <h2>Edit lastname</h2>
+      lastname  <input id="update_lastname_input" type="text" name="lastname" onkeyup="validateEditForm()"><br>
+      <h2>Edit email</h2>
+      email     <input id="update_email_input" type="text" name="email" onkeyup="validateEditForm()"><br>
+      <h2>Edit password</h2>
+      password1 <input id="update_password1_input" type="password" name="password1" onkeyup="validateEditForm()"><br>
+      password2 <input id="update_password2_input" type="password" name="password2" onkeyup="validateEditForm()"><br>
+    </form>
+    <button id="update_submit" type="submit">Save changes</button>
+
+    <div class="errors">
+    </div>
+  {% endif %}
+
+  {% if success != "bernie" %}
+    <p>{{ success }}</p>
+    <!--<img src="http://www.thegatewaypundit.com/wp-content/uploads/trump1.jpg">-->
+  {% endif %}
+  {% for error in errors %}
+    <p class="error">
+      {{ error }}
+    </p>
+  {% endfor %}
+  <script type="text/javascript" src="/static/js/user.js"></script>
+{% endblock %}

@@ -1,0 +1,8 @@
+venv
+.vagrant
+*.pyc
+.DS_Store
+static/images
+mylifeforaiur.xcworkspace/
+
+

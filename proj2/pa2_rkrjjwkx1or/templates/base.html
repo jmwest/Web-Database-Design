@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <title>EECS485 Project 2</title>
+    <meta name="keywords" content="Donald Trump,Trump,President,America,Great,Again,Make,Pics,485"/>
+    <meta name="author" content="Nick Cruz, John West, Diego Calvo"/>
+    <meta name="description" content="When it comes to great steaks, I've just raised the stakes. The Sharper Image is one of my favorite stores, with fantastic products of all kinds. That's why I'm thrilled they agree with me. Trump Steaks are the world's greatest steaks and I mean that in every sense of the word. And The Sharper Image is the only store where you can buy them. Trump Steaks are by far the best tasting most flavorful beef you've ever had, truly in a league of their own. Trump Steaks are five star gourmet, quality that belong in a very very select category of restaurant, and are Certified Angus Beef Prime. There's nothing better than that. Of all of the beef produced in America, less than one percent qualifies for that category. It's the best of the best. Until now you could only enjoy steaks of this quality in one of my resort restaurants or America's finest steakhouses, but now, that's changed. Today through The Sharper Image, you can enjoy the world's greatest steaks, in your own home, with family, friends, anytime. Trump Steaks are aged to perfection to provide the ultimate in tenderness and flavor. If you like your steak, you'll absolutely love Trump Steaks. Treat yourself to the very very best life has to offer. And as a gift, Trump Steaks are the best you can give. One bite and you'll know exactly what I'm talking about. And believe me, I understand steaks, it's my favorite food, and these are the best."/>
+</head>
+<body>
+	<header style="width: 100%; background-color: white">
+    <!-- If a user is logged in, show this account information at all times -->
+    {% if session['username'] != null %}
+    <marquee scrollamount="200" direction="down">
+    <h1 style="margin: 0 auto; width: 50%">Logged in as: {{ session['firstname'] }} {{ session['lastname']}}</h1>
+    </marquee>
+    <a id="nav_edit" href="{{ url_for('user.user_edit_route') }}" style="background-color: white; font-size: 50px; position: fixed; top: 0; right: 0">edit account</a>
+    <a id="nav_albums" href="{{ url_for('albums.albums_route') }}" style="background-color: white; font-size: 50px; position: fixed; top: 80px; right: 0">my albums</a>
+    <a id="nav_logout" href="{{ url_for('logout.logout_route') }}" style="background-color: white; font-size: 50px; position: fixed; top: 160px; right: 0">log out</a>
+    {% endif %}
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+  	<footer>
+  		<!-- <marquee style="font-size:60px; color: pink" scrollamount="80">MAKE AMERICA GREAT AGAIN</marquee>
+      <marquee style="font-size:10px; color: red" scrollamount="50" direction="right">MAKE AMERICA GREAT AGAIN</marquee>
+      <marquee style="font-size:100px; color: blue" scrollamount="20">MAKE AMERICA GREAT AGAIN</marquee>
+      <marquee style="font-size:30px; color: orange" scrollamount="10" direction="up">MAKE AMERICA GREAT AGAIN</marquee>
+      <marquee style="font-size:350px" scrollamount="1">MAKE AMERICA GREAT AGAIN</marquee> -->
+      Pics That Make America Great &copy 2016
+      <div style="background-color: white; width: 400px; margin: 0 auto">
+        <h1>Default password info:</h1>
+        <h3>Username: sportslover</h3>
+        <h3>Password: paulpass93</h3>
+        <br>
+        <h3>Username: traveler</h3>
+        <h3>Password: rebeccapass15</h3>
+        <br>
+        <h3>Username: spacejunkie</h3>
+        <h3>Password: bob1pass</h3>
+      </div>
+  	</footer>
+  <script type="text/javascript" src="/static/js/main.js"></script>
+
+  <!-- <audio controls autoplay loop>
+    <source src="one.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio> -->
+<!-- http://listentoamovie.com/media/1.%20Movies/S/Star%20Wars/Star%20Wars%20-%20Episode%20IV%20-%20A%20New%20Hope%20(1977).mp3 -->
+
+<object type="application/x-shockwave-flash" data="http://flash-mp3-player.net/medias/player_mp3_mini.swf" width="200" height="20">
+	<param name="movie" value="http://flash-mp3-player.net/medias/player_mp3_mini.swf" />
+	<param name="bgcolor" value="#000000" />
+	<param name="FlashVars" value="mp3=http%3A//listentoamovie.com/media/1.%2520Movies/S/Star%2520Wars/Star%2520Wars%2520-%2520Episode%2520IV%2520-%2520A%2520New%2520Hope%2520%281977%29.mp3&amp;autoplay=true" />
+</object>
+
+  <!--<p class="center">
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/KiIP_KDQmXs?autoplay=1&loop=1&controls=0&frameborder=0&rel=0&playlist=KiIP_KDQmXs"></iframe>
+  </p>-->
+  <a id="nav_home" href="{{ url_for('main.main_route') }}" style="position: fixed; top: 0; left: 0; font-size: 20px; background-color: white">Recall to Nexus</a>
+</body>
+
+
+</html>

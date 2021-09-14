@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+{% if edit %}
+    <h1>Edit list of albums</h1>
+{% endif %}
+{% if not edit %}
+    <h1>ALBUMS</h1>
+{% endif %}
+    <!-- <iframe width="0" height="0" src="https://www.youtube.com/embed/58mah_0Y8TU?autoplay=1&loop=1&playlist=nKqCEuv5c6M&controls=0&frameborder=0&rel=0" frameborder="0"></iframe> -->
+    <table>
+	  {% for album in albums %}
+	  <tr>
+        <td><a id="album_{{ album.albumid }}_link" href="{{ url_for('album.album_route', id=album.albumid) }}" style="margin-right: 20px">{{ album.title }}</a></td>
+        <td><a id="album_edit_{{ album.albumid }}_link" href="{{ url_for('album.album_edit_route', id=album.albumid) }}" style="margin-right: 5px">Edit</a></td>
+        {% if edit %}
+            <td>
+            <form action="{{ url_for( 'albums.albums_edit_route', username=usernameVal ) }}" style="margin-right: 5px" method="post">
+                <button id="delete_album_{{ album.albumid }}" name="Delete" type="submit">Delete</button>
+                <input type="hidden" name="op" value="delete">
+                <input type="hidden" name="albumid" value="{{ album.albumid }}">
+            </form>
+            </td>
+        {% endif %}
+        <td>{{ album.access }}</td>
+	  </tr>
+    {% endfor %}
+    {% if not edit %}
+    <tr>
+      <td><a id="user_albums_edit_{{ usernameVal }}" href="{{ url_for('albums.albums_edit_route') }}" style="margin-right: 20px">Add/Delete Albums</a></td>
+    </tr>
+    {% endif %}
+    {% if edit %}
+        <tr><p>Add New Album</p>
+        <form action = "{{ url_for( 'albums.albums_edit_route', username=usernameVal ) }}" method="post">
+            Album name:
+            <br>
+            <input type="hidden" name="op" value="add">
+            <input type="hidden" name="username" value="usernameVal">
+            <input id="album_add_name" type="text" name="title">
+            <!-- <br>
+            Public or private? 
+            <input type="text" name="privacy"> -->
+            <button id="album_add_submit" name="Add" type="submit">Add</button>
+            <br>
+            <br>
+        </form>
+        <!--<td><a href="/albums/edit?id={{ 4 }}&username={{ username }}" style="margin-right: 5px">Add</a></td>
+        <td></td>-->
+        </tr>
+    {% endif %}
+    </table>
+{% endblock %}

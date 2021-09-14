@@ -1,0 +1,29 @@
+<!-- templates/live.html-->
+<!DOCTYPE HTML PUBLIC "//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="/static/css/style.css" />
+	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
+	<script type="text/javascript" src="http://builds.emberjs.com/release/ember-template-compiler.js"></script>
+	<script type="text/javascript" src="http://builds.emberjs.com/release/ember.debug.js"></script>
+	<script type="text/javascript" src="http://builds.emberjs.com/release/ember-data.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+	<script type="text/javascript" src="/static/js/app/app.js"></script>
+	<title>EECS485</title>
+</head>
+<body bgcolor="#66FFCC">
+	<p> just gimme something people </p>
+	<script type="text/x-handlebars" data-template-name="pic">
+		<h1>Picture</h1>
+		<img src="/static/images/{{model.picurl}}">
+		<br>
+		{{#link-to "pic" model.prevpicid}}Previous{{/link-to}}
+		{{#link-to "pic" model.nextpicid}}Next{{/link-to}}
+		<br>
+		<b>Caption: </b>{{input type="text" value=model.caption enter="save"}}
+	</script>
+	<p> after the script</p>
+
+</body>
+</html>

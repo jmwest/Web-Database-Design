@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>login to vote for trump</h1>
+    <form method="post" action="{{ url_for('login.login_route') }}" style="font-size: 50px; font-family: comic sans ms, sans-serif">
+	  username<br><input id="login_username_input" type="text" name="username" style="font-size: 50px; font-family: comic sans ms, sans-serif"><br>
+      password<br><input id="login_password_input" type="password" name="password" style="font-size: 50px; font-family: comic sans ms, sans-serif"><br>
+	  <button type="submit" style="font-size: 50px; font-family: comic sans ms, sans-serif">Send password to NSA</button>
+    </form>
+    {% if badUsername %}
+        <p class="error" id="error_username">error: LOW ENERGY in your username<p>
+        <img src = "http://vignette2.wikia.nocookie.net/uncyclopedia/images/1/16/ShockedCarson.jpg/revision/latest?cb=20151122220406">
+    {% endif %}
+    {% if badCombo %}
+    	<p class="error" id="error_combo">error: LOW ENERGY in your username/password combo<p>
+    	<img src = "http://vignette2.wikia.nocookie.net/uncyclopedia/images/1/16/ShockedCarson.jpg/revision/latest?cb=20151122220406">
+    {% endif %}
+{% endblock %}

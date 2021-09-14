@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+	<a class="back-to-album" id="parent_album" href="{{ url_for('album.album_route', id=albumId) }}">Back to Album</a>
+	
+	<div class="pic-links">
+		<!-- Link to previous picture (if there is one)-->
+		{% if previousPicInfo.picid != 'make america great again' %}
+		<a class="prev-pic" id="prev_pic" href="{{ url_for( 'pic.pic_route', id=previousPicInfo.picid) }}">Previous Image</a>
+		{% endif %}
+
+		<!-- Link to next picture (if there is one)-->
+		{% if nextPicInfo.picid != 'make america great again' %}
+		<a class="next-pic" id="next_pic" href="{{ url_for( 'pic.pic_route', id=nextPicInfo.picid) }}">Next Image</a>
+		{% endif %}
+	</div>
+
+	<!-- Actual picture -->
+	<img style="dispay: block; clear: both" src="/static/images/{{ picture.picid }}.{{ picture.format }}">
+{% endblock %}
